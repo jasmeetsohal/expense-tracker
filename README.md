@@ -99,4 +99,96 @@ This project is private and confidential.
 - vineet.gupta@xalts.io
 - sharuk.shaik@xalts.io
 
+## Swagger Documentation
+
+### Local Development
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd expense-tracker
+```
+
+2. Build the project:
+```bash
+mvn clean package
+```
+
+3. Run the application:
+```bash
 mvn spring-boot:run
+```
+
+### Docker Deployment
+
+1. Build and start the containers:
+```bash
+docker-compose up --build
+```
+
+2. The application will be available at:
+- API: `http://localhost:8080/api`
+- Swagger UI: `http://localhost:8080/api/swagger-ui.html`
+- API Documentation: `http://localhost:8080/api/v3/api-docs`
+
+### API Documentation
+
+The API is documented using Swagger UI. You can access the interactive documentation at:
+- Swagger UI: `http://localhost:8080/api/swagger-ui.html`
+
+### Using Swagger UI
+
+1. Open `http://localhost:8080/api/swagger-ui.html` in your browser
+2. You'll see all API endpoints grouped by controllers
+3. Click on any endpoint to expand its details
+4. For endpoints requiring authentication:
+   - Click the "Authorize" button at the top
+   - Enter your JWT token in the format: `Bearer your-jwt-token`
+   - Click "Authorize"
+
+### Available Endpoints
+
+- Authentication:
+  - POST `/api/auth/register` - Register a new user
+  - POST `/api/auth/login` - Login and get JWT token
+
+- Expenses:
+  - GET `/api/expenses` - Get all expenses
+  - POST `/api/expenses` - Create a new expense
+  - GET `/api/expenses/{id}` - Get expense by ID
+  - PUT `/api/expenses/{id}` - Update expense
+  - DELETE `/api/expenses/{id}` - Delete expense
+
+## Database
+
+The application uses PostgreSQL as the database. When running with Docker, a PostgreSQL container is automatically created and configured.
+
+### Database Configuration
+
+- Host: `localhost` (or `db` when using Docker)
+- Port: `5432`
+- Database: `expense_tracker`
+- Username: `postgres`
+- Password: `postgres`
+
+## Environment Variables
+
+The following environment variables can be configured:
+
+- `SPRING_DATASOURCE_URL`: Database connection URL
+- `SPRING_DATASOURCE_USERNAME`: Database username
+- `SPRING_DATASOURCE_PASSWORD`: Database password
+- `JWT_SECRET`: Secret key for JWT token generation
+- `JWT_EXPIRATION`: JWT token expiration time in milliseconds
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
