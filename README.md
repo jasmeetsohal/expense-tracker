@@ -98,3 +98,5 @@ This project is private and confidential.
 - vinay.nittali@xalts.io
 - vineet.gupta@xalts.io
 - sharuk.shaik@xalts.io
+
+mvn spring-boot:run
